@@ -120,7 +120,8 @@ ${relevantMessages.map(msg =>
         }
       ];
 
-      const response = await fetch('http://localhost:5001/api/chat/mentor', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+      const response = await fetch(`${apiUrl}/chat/mentor`, {
         method: 'POST',
         headers: getHeaders(),
         body: JSON.stringify({ messages })

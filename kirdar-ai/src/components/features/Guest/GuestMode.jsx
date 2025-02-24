@@ -45,7 +45,8 @@ const GuestEntry = () => {
 
     try {
       console.log('Validating guest code:', accessCode);
-      const response = await fetch('http://localhost:5001/api/guest/validate-code', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001/api';
+      const response = await fetch(`${apiUrl}/guest/validate-code`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
